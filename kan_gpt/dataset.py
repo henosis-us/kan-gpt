@@ -26,7 +26,7 @@ class WebTextDataset(Dataset):
         if not os.path.isfile(self.tokenized_dataset_path):
             self.tokenized_dataset = []
 
-            self.json_path = f"datasets/webtext/webtext.{split}.jsonl"
+            self.json_path = f"scripts/datasets/webtext/webtext.{split}.jsonl"
 
             assert os.path.isfile(self.json_path)
 
