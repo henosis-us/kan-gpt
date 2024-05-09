@@ -1,3 +1,5 @@
+import torch
+
 import wandb
 from kan_gpt.train import main
 
@@ -18,7 +20,13 @@ def wandb_sweep():
 
     run_args = Args()
 
+    if "cuda" in run_args.device:
+        torch.cuda.empty_cache()
+
     main(args=run_args, run=run)
+
+    if "cuda" in run_args.device:
+        torch.cuda.empty_cache()
 
 
 def sweep(args):
@@ -48,24 +56,24 @@ def sweep(args):
 if __name__ == "__main__":
 
     class SweepArgs:
-        model_type = ["gpt-mini", "gpt-nano", "gpt2"]
+        model_type = ["gpt-mini", "gpt-micro", "gpt-nano", "gpt-pico"]
         dummy_dataset = [
             False,
         ]
-        learning_rate = [5e-3, 5e-4, 5e-5, 5e-6]
+        learning_rate = [5e-5, 5e-6, 5e-7]
         max_iters = [
-            1000,
+            8000,
         ]
         num_workers = [
             0,
         ]
-        batch_size = [1, 2, 4, 8, 12, 16]
+        batch_size = [1, 2, 3, 4]
         dataset = [
             "tinyshakespeare",
         ]
         architecture = ["MLP", "KAN"]
         device = [
-            "auto",
+            "cuda",
         ]
 
     sweep(SweepArgs())

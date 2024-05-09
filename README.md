@@ -1,7 +1,11 @@
 # KAN-GPT
 
+![PyPI - Downloads](https://img.shields.io/pypi/dd/kan-gpt)
+![PyPI - Version](https://img.shields.io/pypi/v/kan-gpt)
 [![codecov](https://codecov.io/gh/AdityaNG/kan-gpt/branch/main/graph/badge.svg?token=kan-gpt_token_here)](https://codecov.io/gh/AdityaNG/kan-gpt)
 [![CI](https://github.com/AdityaNG/kan-gpt/actions/workflows/main.yml/badge.svg)](https://github.com/AdityaNG/kan-gpt/actions/workflows/main.yml)
+![GitHub License](https://img.shields.io/github/license/AdityaNG/kan-gpt)
+
 
 The PyTorch implementation of Generative Pre-trained Transformers (GPTs) using Kolmogorov-Arnold Networks (KANs) for language modeling
 
@@ -13,7 +17,7 @@ pip install kan_gpt
 
 ## Usage
 
-Refer to the [KAN_GPT.ipynb](KAN_GPT.ipynb) and [kan_gpt/prompt.py](kan_gpt/prompt.py) for usage examples. The following is an ourtine of how to use the model:
+Refer to the [KAN_GPT.ipynb](KAN_GPT.ipynb) and [kan_gpt/prompt.py](kan_gpt/prompt.py) for usage examples. The following is an outine of how to use the model:
 
 ```py
 from kan_gpt.model import GPT
@@ -56,6 +60,7 @@ git pull
 
 # Download Dataset
 ./scripts/download_webtext.sh
+./scripts/download_tinyshakespeare.sh
 
 # Install dependencies for development
 pip install -r requirements.txt
@@ -82,6 +87,15 @@ You can prompt the model to produce text as follows
 python -m kan_gpt.prompt --prompt "Bangalore is often described as the " --model_path (checkpoint)
 ```
 
+## Results
+
+We train and compare KAN-GPT with an equivalent MLP-GPT model on the Tiny Shakespeare dataset. We observe that the KAN-GPT performs slightly better than the MLP-GPT. We are looking into further experiments to dive deeper. The results are shown below:
+
+
+| Metrics |   |   |
+|---------|---------|---------|
+| ![results_loss](media/results_loss.png) | ![results_cross_entropy](media/results_cross_entropy.png) | ![results_perplexity](media/results_perplexity.png) |
+
 ## TODOs
 
 - [x] Integrate [minGPT](https://github.com/karpathy/minGPT) and [pykan](https://github.com/KindXiaoming/pykan)
@@ -94,13 +108,17 @@ python -m kan_gpt.prompt --prompt "Bangalore is often described as the " --model
 - [x] Mini training POC for MLP-GPT
 - [x] Train MLP-GPT on the webtext dataset as a baseline
 - [x] Train KAN-GPT on the webtext dataset as a baseline
-- [ ] Metrics comparing KAN-GPT and MLP-GPT
+- [x] Metrics comparing KAN-GPT and MLP-GPT
 - [x] Auto Save checkpoints
 - [x] Auto Save checkpoints to W&B
 - [ ] Auto Download model weights from git / huggingface
 - [x] W&B hyperparam sweep script
 - [x] Script to load checkpoint in interactive mode
+- [ ] Reduce requrements.txt constraints
+- [ ] Define pydantic model for training and sweep args
+- [ ] Pruning the package, get rid of unused code
 - [ ] Training script to PyTorch Lighting
+- [x] Documentation: `mkdocs gh-deploy`
 - [x] Integrate with [efficient-kan](https://github.com/Blealtan/efficient-kan/blob/master/src/efficient_kan/kan.py)
 - [x] Test Cases
   - [x] KAN: Forward-Backward test

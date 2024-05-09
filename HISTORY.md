@@ -4,6 +4,49 @@ Changelog
 
 (unreleased)
 ------------
+- Test(kan): coverage improved. [Aditya NG]
+- Docs(README,docs/): badges. [Aditya NG]
+- Docs(README.md): typo. [Aditya NG]
+
+
+1.0.0 (2024-05-09)
+------------------
+- Release: version 1.0.0 🚀 [Aditya NG]
+- Version increment. [Aditya NG]
+- Merge pull request #11 from wektorz/fix_missing_dataset_dowload.
+  [Aditya]
+
+  add missing dataset dowload to setup that caused train to fail in jupyter notebook
+- Update KAN_GPT.ipynb. [Wiktor Zdrojewski]
+
+  add missing dowload that caused train to fail
+- Docs(mkdocs): results added. [Aditya NG]
+- Docs(README,media): results and metrics. [Aditya NG]
+- Feat(train.py): metrics added. [Aditya NG]
+- Release: version 0.4.0 🚀 [Aditya NG]
+
+
+0.4.0 (2024-05-08)
+------------------
+- Release: version 0.4.0 🚀 [Aditya NG]
+- Version increment. [Aditya NG]
+- Fix(kan_gpt/efficient_kan/__init__.py): missing init file. [Aditya NG]
+- Feat(README.md): results added. [Aditya NG]
+- Docs(mkdocs): documentation for mkdocs. [Aditya NG]
+- Feat(sweep): slower learning rate. [Aditya NG]
+- Fix(sweep): max_iters. [Aditya NG]
+- Fix(sweep): cuda device. [Aditya NG]
+- Ci(main): disabled wandb in ci. [Aditya NG]
+- Test(tests/test_train.py): disable wandb during testing. [Aditya NG]
+- Fix(sweep): added cuda clean. [Aditya NG]
+- Feat(sweep): reduced batch size. [Aditya NG]
+- Feat(download_dataset): functions to download tinyshakespeare and
+  webtext. [Aditya NG]
+
+
+0.3.0 (2024-05-07)
+------------------
+- Release: version 0.3.0 🚀 [Aditya NG]
 - Docs(README.md): dataset mention. [Aditya NG]
 - Feat(sweep): sweep script for getting a vast hyperparam sweep. [Aditya
   NG]
