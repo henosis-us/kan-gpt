@@ -21,7 +21,7 @@ class WebTextDataset(Dataset):
         self.vocab_size = vocab_size
         self.tokenizer = GPT2Tokenizer.from_pretrained(model_type)
 
-        self.tokenized_dataset_path = f"datasets/webtext/webtext.{split}.pkl"
+        self.tokenized_dataset_path = f"scripts/datasets/webtext/webtext.{split}.pkl"
 
         if not os.path.isfile(self.tokenized_dataset_path):
             self.tokenized_dataset = []
@@ -108,13 +108,13 @@ class TinyShakespeareDataset(Dataset):
         self.tokenizer = GPT2Tokenizer.from_pretrained(model_type)
 
         self.tokenized_dataset_path = (
-            f"datasets/tinyshakespeare/input.{split}.pkl"
+            f"scripts/datasets/tinyshakespeare/input.{split}.pkl"
         )
 
         if not os.path.isfile(self.tokenized_dataset_path):
             self.tokenized_dataset = []
 
-            self.tsp_path = "datasets/tinyshakespeare/input.txt"
+            self.tsp_path = "scripts/datasets/tinyshakespeare/input.txt"
 
             assert os.path.isfile(self.tsp_path)
 
